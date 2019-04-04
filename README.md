@@ -5,7 +5,7 @@ An implementation of the Ethernet library UdpNtpClient example program ...for th
 ## What is this and what does it do?
 This is just a simple, working version of the Ethernet library UdpNtpClient example program to get you going with the ESP32 and hardwired Ethernet, using the common (and readily available) W5500 module.  The hardware interconnection list (pin-to-pin) is also included below.
 
-It only initializes and uses the hardwired Ethernet connection, *not* the WiFi.  It will connect to the specified NTP server and display the UTC time, then go into a short sleep loop (printing occasional "." characters, so that you can see it's still running), before repeating.
+It only initializes and uses the hardwired Ethernet connection, *not* the WiFi.  It will connect to the specified NTP server pool and display the UTC time, then go into a short sleep loop (printing occasional "." characters, so that you can see it's still running), before repeating.
 
 ### The code
 This is a PlatformIO build (and if you haven't tried PlatformIO yet, you really should, it's great!), but is easily adapted to the Arduino IDE, if that happens to be your weapon of choice.
@@ -15,6 +15,8 @@ Under PlatformIO, the platformio.ini file will automatically download and instal
 The setup() section of the code does have some clunky hardware checks, so pay attention to the serial output from your ESP32 when you first run it; it will try to guide you to solutions for (simple!) hardware issues.
 
 **You do** need to update the src/local_config.h file to fit with *your* specific home network; it will not work unless it can look up the IP address of the remote NTP server (via DNS) and find a valid route to it (via your gateway).
+
+**Optionally**, change the definition of "timeServer[]" (also in src/local_config.h) to select a server pool for your geogrphical region (this will usually improve reliability by reducing the chance of lost/slow replies).
 
 
 ### DHCP

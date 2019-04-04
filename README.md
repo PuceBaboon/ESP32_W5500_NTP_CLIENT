@@ -7,7 +7,7 @@ This is just a simple, working version of the Ethernet library UdpNtpClient exam
 
 It only initializes and uses the hardwired Ethernet connection, *not* the WiFi.  It will connect to the specified NTP server pool and display the UTC time, then go into a short sleep loop (printing occasional "." characters, so that you can see it's still running), before repeating.
 
-This is basically a 30-minute project which will result in a working, hardwired Ethernet connected to your ESP32.
+This is basically a 30-minute project which will result in a working, hardwired Ethernet module connected to your ESP32.
 
 
 ### The code

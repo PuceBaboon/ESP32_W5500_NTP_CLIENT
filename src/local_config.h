@@ -1,5 +1,5 @@
 /*
- *   $Id: local_config.h,v 1.4 2019/04/04 01:34:38 gaijin Exp $
+ *   $Id: local_config.h,v 1.5 2019/04/04 23:06:53 gaijin Exp $
  *
  * Change settings below to customize for -YOUR- local network.
  * 
@@ -27,9 +27,23 @@ IPAddress eth_GW(192, 168, 1, 1);		// *** CHANGE THIS to match YOUR Gateway (rou
 
 const uint16_t localPort = 55432;		// Local port for UDP packets.
 
-const char timeServer[] = "time.nist.gov";	// Default NTP server to use.
+/*
+ * Choose the NTP server pool for your geographical region for best
+ * performance (fewer lost packets).
+ *
+ * *** Uncomment only one of the following "timeServer[]" defines. ***
+ */
+const char timeServer[] = "pool.ntp.org";		// Default NTP server pool.
+// const char timeServer[] = "africa.pool.ntp.org";		// Regional server pool.
+// const char timeServer[] = "asia.pool.ntp.org";		// Regional server pool.
+// const char timeServer[] = "europe.pool.ntp.org";		// Regional server pool.
+// const char timeServer[] = "north-america.pool.ntp.org";	// Regional server pool.
+// const char timeServer[] = "oceania.pool.ntp.org";		// Regional server pool.
+// const char timeServer[] = "south-america.pool.ntp.org";	// Regional server pool.
+// const char timeServer[] = "time.nist.gov";			// Original example target server (least preferred).
 
 const uint8_t SLEEP_SECS = 15;			// Number of seconds to sleep between queries to the time
 						// server. Please don't set this any lower than 10 unless
 						// timeServer[] is a local NTP server on -your- network.
+
 

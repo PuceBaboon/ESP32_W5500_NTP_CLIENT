@@ -7,6 +7,9 @@ This is just a simple, working version of the Ethernet library UdpNtpClient exam
 
 It only initializes and uses the hardwired Ethernet connection, *not* the WiFi.  It will connect to the specified NTP server pool and display the UTC time, then go into a short sleep loop (printing occasional "." characters, so that you can see it's still running), before repeating.
 
+This is basically a 30-minute project which will result in a working, hardwired Ethernet connected to your ESP32.
+
+
 ### The code
 This is a PlatformIO build (and if you haven't tried PlatformIO yet, you really should, it's great!), but is easily adapted to the Arduino IDE, if that happens to be your weapon of choice.
 
@@ -16,7 +19,7 @@ The setup() section of the code does have some clunky hardware checks, so pay at
 
 **You do** need to update the src/local_config.h file to fit with *your* specific home network; it will not work unless it can look up the IP address of the remote NTP server (via DNS) and find a valid route to it (via your gateway).
 
-**Optionally**, change the definition of "timeServer[]" (also in src/local_config.h) to select a server pool for your geogrphical region (this will usually improve reliability by reducing the chance of lost/slow replies).
+**Optionally**, you can change the definition of "timeServer[]" (also in src/local_config.h) to select a server pool for your geogrphical region (this will usually improve reliability by reducing the chance of lost/slow replies).
 
 
 ### DHCP
@@ -35,6 +38,7 @@ The physical connections between the ESP32 and W5500 are different, but simpler 
 GPIO26 was chosen for the reset driver pin (from the ESP32 to the W5500) simply because it didn't clash with any of the other peripheral devices I intended to use and didn't have existing pull-up or pull-down requirements that might cause problems at power-up (as GPIO15 does on the ESP8266, for instance).
 
 As always, you do need a good solid DC supply for both boards and a good ground connection between them in addition to the data lines listed above.
+
 
 ### Troubleshooting
 - A common problem when wiring up this circuit on breadboard is that the W5500 doesn't get the assigned IP address at start-up, or displays all zeros or all ones, or apparently random numbers at each start up.  These are all symptoms of bad physical connections between the boards.  Try replacing each jumper wire, one by one and testing in between.  If that doesn't work, try moving the jumpers (and the modules) to a different row of holes.

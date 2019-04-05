@@ -9,6 +9,8 @@ It only initializes and uses the hardwired Ethernet connection, *not* the WiFi. 
 
 This is basically a 30-minute project which will result in a working, hardwired Ethernet module connected to your ESP32.
 
+[Here are some photos of the prototype board and sample output](https://esp8266hints.wordpress.com/2019/04/05/esp32-w5500-simple-working-example "ESP32 + W5500 — Simple Working Example")
+
 
 ### The code
 This is a PlatformIO build (and if you haven't tried PlatformIO yet, you really should, it's great!), but is easily adapted to the Arduino IDE, if that happens to be your weapon of choice.
